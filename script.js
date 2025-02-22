@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // DOM Elements
+
     const form = document.getElementById('shortenForm');
     const submitBtn = document.getElementById('submitBtn');
     const buttonText = submitBtn.querySelector('.button-text');
@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalMessage = document.getElementById('modalErrorMessage');
     const closeModal = document.querySelector('.close-modal');
 
-    // URL Shortening Function
     async function shortenUrl(url) {
         const apiUrl = config.API_BASE_URL;
         const apiKey = config.TINY_URL_API_KEY;
@@ -39,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Copy to Clipboard Function
     async function copyToClipboard(text) {
         try {
             await navigator.clipboard.writeText(text);
@@ -53,20 +51,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Show Error Function
     function showError(message) {
         modalMessage.textContent = message;
         modal.style.display = 'flex';
     }
 
-    // Event Listeners
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const originalUrl = document.getElementById('originalUrl').value;
         const shortUrlInput = document.getElementById('shortUrlInput');
         const result = document.getElementById('result');
 
-        // Show loading state
         buttonText.style.display = 'none';
         loader.style.display = 'block';
         submitBtn.disabled = true;
@@ -79,7 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             showError(error.message);
         } finally {
-            // Reset button state
             buttonText.style.display = 'block';
             loader.style.display = 'none';
             submitBtn.disabled = false;
@@ -93,7 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Social Share Buttons
     twitterShare.addEventListener('click', () => {
         const shortUrl = document.getElementById('shortUrlInput').value;
         if (shortUrl) {
@@ -110,19 +103,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Modal Close Button
     closeModal.addEventListener('click', () => {
         modal.style.display = 'none';
     });
 
-    // Close Modal on Outside Click
     window.addEventListener('click', (e) => {
         if (e.target === modal) {
             modal.style.display = 'none';
         }
     });
 
-    // URL Validation
     const urlInput = document.getElementById('originalUrl');
     urlInput.addEventListener('input', () => {
         if (urlInput.validity.typeMismatch || urlInput.validity.patternMismatch) {
@@ -130,28 +120,5 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             errorMessage.textContent = '';
         }
-    });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    const contactForm = document.getElementById('contactForm');
-    const successMessage = document.getElementById('successMessage');
-
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const formData = new FormData(contactForm);
-        
-        // Show loading state
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-        submitBtn.disabled = true;
-
-        // Simulate form submission
-        setTimeout(() => {
-            contactForm.style.display = 'none';
-            successMessage.style.display = 'block';
-            successMessage.classList.add('fade-in');
-        }, 1500);
     });
 });
