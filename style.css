@@ -166,35 +166,52 @@ h1 {
 
 .share-buttons {
     display: flex;
-    gap: 10px;
-    margin-top: 1rem;
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 
 .share-btn {
     flex: 1;
-    padding: 10px;
+    padding: 1rem 1.5rem;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     cursor: pointer;
     color: white;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    transition: opacity 0.3s ease;
+    gap: 10px;
+    transition: all 0.3s ease;
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .share-btn:hover {
     opacity: 0.9;
 }
 
+
 .twitter {
-    background-color: #1da1f2;
+    background: linear-gradient(135deg, #1da1f2 0%, #1a91da 100%);
 }
 
 .facebook {
-    background-color: #1877f2;
+    background: linear-gradient(135deg, #1877f2 0%, #166fe5 100%);
+}
+
+.share-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.share-btn:active {
+    transform: translateY(-1px);
+}
+
+.share-btn i {
+    font-size: 1.2rem;
 }
 
 .error-message {
@@ -275,5 +292,213 @@ footer {
 
     h1 {
         font-size: 2rem;
+    }
+}
+
+/* Add these styles to your existing CSS file */
+
+.policy-container {
+    max-width: 800px;
+    padding: 3rem;
+}
+
+.policy-content {
+    line-height: 1.8;
+}
+
+.policy-content section {
+    margin-bottom: 2rem;
+}
+
+.policy-content h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.policy-content ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.policy-content li {
+    margin-bottom: 0.5rem;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #357abd;
+}
+
+@media (max-width: 600px) {
+    .policy-container {
+        padding: 1.5rem;
+    }
+}
+
+
+/* Add these styles to your existing CSS file */
+
+.policy-container {
+    max-width: 800px;
+    padding: 3rem;
+}
+
+.policy-content {
+    line-height: 1.8;
+}
+
+.policy-content section {
+    margin-bottom: 2rem;
+}
+
+.policy-content h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.policy-content ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.policy-content li {
+    margin-bottom: 0.5rem;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #357abd;
+}
+
+@media (max-width: 600px) {
+    .policy-container {
+        padding: 1.5rem;
+    }
+}
+
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.info-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-item i {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.social-link {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.github-link {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.github-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.github-link a:hover {
+    background: rgba(0,0,0,0.05);
+    transform: translateY(-2px);
+}
+
+.github-link i {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 600px) {
+    .share-buttons {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .share-btn {
+        width: 100%;
+        padding: 0.8rem;
     }
 }
