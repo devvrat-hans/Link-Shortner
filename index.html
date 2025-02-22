@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free URL Shortener - Make your long URLs short and easy to share">
+    <meta name="keywords" content="URL shortener, link shortener, tiny URL">
+    <meta name="author" content="Your Name">
+    <title>URL Shortener - Make Your Links Shorter</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.ico">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-link"></i> URL Shortener</h1>
+            <p class="subtitle">Make your long URLs short and easy to share</p>
+        </header>
+
+        <main>
+            <form id="shortenForm">
+                <div class="input-group">
+                    <div class="url-input-wrapper">
+                        <i class="fas fa-globe input-icon"></i>
+                        <input 
+                            type="url" 
+                            id="originalUrl" 
+                            placeholder="Enter your long URL here" 
+                            required
+                            pattern="https?://.*"
+                            title="Please enter a valid URL starting with http:// or https://"
+                        >
+                    </div>
+                    <button type="submit" id="submitBtn" class="primary-button">
+                        <span class="button-text">Shorten URL</span>
+                        <span class="loader"></span>
+                    </button>
+                </div>
+                
+                <div class="error-message" id="errorMessage"></div>
+            </form>
+
+            <div id="result" class="result-section" style="display: none;">
+                <h2>Your Shortened URL</h2>
+                <div class="result-container">
+                    <input type="text" id="shortUrlInput" readonly>
+                    <button id="copyBtn" class="copy-btn" title="Copy to clipboard">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+                <p class="copy-feedback" id="copyFeedback"></p>
+                
+                <div class="share-buttons">
+                    <button class="share-btn twitter" id="twitterShare">
+                        <i class="fab fa-twitter"></i> Share on Twitter
+                    </button>
+                    <button class="share-btn facebook" id="facebookShare">
+                        <i class="fab fa-facebook"></i> Share on Facebook
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2024 URL Shortener. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Error Modal -->
+    <div id="errorModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Error</h2>
+            <p id="modalErrorMessage"></p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
